@@ -17,7 +17,7 @@ export default function Contact() {
                 <a href="https://github.com/Vanshit011" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-neutral-700 text-white font-bold rounded-full hover:bg-neutral-900 hover:border-white transition-colors">
                     GitHub
                 </a>
-                <a href="https://www.upwork.com/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-neutral-700 text-white font-bold rounded-full hover:bg-neutral-900 hover:border-white transition-colors">
+                <a href="https://www.upwork.com/freelancers/~01e888568ec5e7970e" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-neutral-700 text-white font-bold rounded-full hover:bg-neutral-900 hover:border-white transition-colors">
                     Upwork
                 </a>
             </div>
