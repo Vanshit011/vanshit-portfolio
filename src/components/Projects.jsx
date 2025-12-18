@@ -2,6 +2,19 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 
+const SHOWCASE_PROJECTS = [
+    "polytech",
+    "amrutflow",
+    "forge",
+    "erp",
+    "labour pro",
+    "nandan bottling",
+    "jayesh forge",
+    "node hotel crud"
+];
+
+const normalizeName = (name) => name.toLowerCase().replace(/[^a-z0-9]/g, '');
+
 export default function Projects() {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -11,7 +24,13 @@ export default function Projects() {
             try {
                 const response = await axios.get('https://api.github.com/users/Vanshit011/repos');
                 const filtered = response.data
-                    .filter(repo => !repo.fork)
+                    .filter(repo => {
+                        if (repo.fork) return false;
+                        const normalizedName = normalizeName(repo.name);
+                        return SHOWCASE_PROJECTS.some(project =>
+                            normalizedName.includes(normalizeName(project))
+                        );
+                    })
                     .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
                 setProjects(filtered);
             } catch (error) {
